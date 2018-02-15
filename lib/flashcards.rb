@@ -6,7 +6,4 @@ class Card
     @question = question
     @answer = answer
   end
-  def question
-  
-  end
 end
