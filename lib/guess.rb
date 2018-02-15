@@ -12,7 +12,10 @@ class Guess
   end
 
   def feedback
-    response == @card.answer
-      p "Correct!"
+    if correct?
+       "Correct!"
+    else
+       "You Suck!"
+    end
   end
 end
