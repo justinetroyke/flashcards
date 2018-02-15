@@ -1,5 +1,4 @@
 class Guess
-
   attr_reader :response
 
   def initialize(response, card)
@@ -13,9 +12,9 @@ class Guess
 
   def feedback
     if correct?
-       "Correct!"
+      "Correct!"
     else
-       "You Suck!"
+      "Incorrect."
     end
   end
 end
