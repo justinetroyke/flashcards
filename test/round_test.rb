@@ -12,26 +12,56 @@ class RoundTest < Minitest::Test
     @card_2 = Card.new("Approximately how many miles are in one
                        astronomical unit?", "93,000,000")
     @guess_1 = Guess.new("Juneau", @card_1)
+    @guess_2 = Guess.new("93,000,000", @card_2)
     @deck = Deck.new([@card_1, @card_2])
     @round = Round.new(@deck)
   end
+
   def test_it_exists
     assert_instance_of Round, @round
   end
+
   def test_it_can_work_with_deck
     assert_equal @deck, @round.deck
   end
+
   def test_guesses_method
     assert_equal [], @round.guesses
   end
+
   def test_for_current_card
     assert_equal @card_1, @round.current_card
-    assert_equal @guess_1, @round.record_guess("Juneau")
+  end
+
+  def test_if_current_card_is_two
+    @round.record_guess("Juneau")
     assert_equal @card_2, @round.current_card
   end
+
   def test_record_guess
-    skip
-    assert @guess_1, @round.record_guess("Juneau")
-    assert @guess_2, @round.record_guess("2")
+    actual = @round.record_guess("Juneau")
+    assert_equal @guess_1.response, actual.response
+    assert_equal @guess_1.card, actual.card
+  end
+
+  def test_it_can_record_two_guesses
+    @round.record_guess("Juneau")
+    assert_equal @guess_2.response, @round.record_guess("93,000,000").response
+  end
+
+  def test_count_guesses
+    x = rand(0..100)
+    x.times do |count|
+        @round.record_guess(count)
+    end
+    assert_equal x, @round.guesses.count
+  end
+
+  def test_number_of_corrects
+    x = rand(0..100)
+    x.times do |count|
+      @round.number_correct
+    end
+    assert_equal x, @round.number_correct
   end
 end
