@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/flashcards'
-require './lib/guess'
 require 'pry'
 
 class CardTest < Minitest::Test
@@ -15,6 +14,7 @@ class CardTest < Minitest::Test
     assert_equal "What is the capital of Alaska?", @card.question
   end
   def test_you_can_call_answer
+    skip
     assert_equal "Juneau", @card.answer
   end
 end
