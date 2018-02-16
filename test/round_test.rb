@@ -26,7 +26,7 @@ class RoundTest < Minitest::Test
   end
   def test_for_current_card
     assert_equal @card_1, @round.current_card
-    assert @guess_1, @round.record_guess("Juneau")
+    assert_equal @guess_1, @round.record_guess("Juneau")
     assert_equal @card_2, @round.current_card
   end
   def test_record_guess
