@@ -4,6 +4,7 @@ require './lib/flashcards'
 require './lib/guess'
 require 'pry'
 
+
 class GuessTest < Minitest::Test
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau")

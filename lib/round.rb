@@ -1,7 +1,6 @@
 class Round
   attr_reader :deck,
-              :guesses,
-              :number_correct
+              :guesses
 
   def initialize(deck)
     @deck = deck
@@ -18,8 +17,13 @@ class Round
     result = Guess.new(guess, current_card)
     @guesses << result
     result
+    binding.pry
   end
-
-  def number_correct
-  end
+  # 
+  # def number_correct
+  #   if @guesse.correct?
+  #     number_correct += 1
+  #   end
+  #       binding.pry
+  # end
 end

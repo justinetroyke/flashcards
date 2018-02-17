@@ -1,9 +1,5 @@
-require 'simplecov'
+# require 'simplecov'
 require 'rake'
-
-
-SimpleCov.start
-
 desc "run all tests"
 task :test do
   my_files = FileList['test/**/*.rb']

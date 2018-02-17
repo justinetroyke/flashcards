@@ -1,11 +1,9 @@
-require 'simplecov'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/flashcards'
 require './lib/guess'
 require './lib/deck'
 require 'pry'
-
 
 class DeckTest < Minitest::Test
   def setup
