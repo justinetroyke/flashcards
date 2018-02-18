@@ -17,13 +17,16 @@ class Round
     result = Guess.new(guess, current_card)
     @guesses << result
     result
-    binding.pry
   end
-  # 
-  # def number_correct
-  #   if @guesse.correct?
-  #     number_correct += 1
-  #   end
-  #       binding.pry
-  # end
+
+  def number_correct
+    correct_guesses = @guesses.select do |guess|
+    guess.correct?
+    end
+    correct_guesses.length
+  end
+
+  def percent_correct
+    (@number_correct / @guesses.count) * 100
+  end
 end

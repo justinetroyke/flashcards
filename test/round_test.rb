@@ -58,15 +58,19 @@ class RoundTest < Minitest::Test
   end
 
   def test_first_guess_is_correct
+    @round.record_guess("Juneau")
     assert_equal "Correct!", @round.guesses.first.feedback
   end
-  def test_number_of_corrects
-    skip
+
+  def test_number_of_correct_answers
     @round.record_guess("Juneau")
-    x = rand(0..100)
-    x.times do |count|
-      @round.number_correct
-    end
-    assert_equal x, @round.number_correct
+    @round.record_guess("2")
+    assert_equal 1, @round.number_correct
+  end
+
+  def test_it_can_give_percent_correct
+    @round.record_guess("Juneau")
+    @round.record_guess("2")
+    assert_equal 50, @round.percent_correct
   end
 end
