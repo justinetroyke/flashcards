@@ -70,7 +70,7 @@ class RoundTest < Minitest::Test
 
   def test_it_can_give_percent_correct
     @round.record_guess("Juneau")
-    @round.record_guess("2")
+    @round.record_guess("2,000")
     assert_equal 50, @round.percent_correct
   end
 end
