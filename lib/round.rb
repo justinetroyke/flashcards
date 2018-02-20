@@ -24,9 +24,11 @@ class Round
     guess.correct?
     end
     correct_guesses.length
+
   end
 
   def percent_correct
     (@number_correct / @guesses.count) * 100
+    binding.pry
   end
 end
