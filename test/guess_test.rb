@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/flashcards'
+require './lib/card'
 require './lib/guess'
 require 'pry'
 

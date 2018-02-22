@@ -1,14 +1,16 @@
-require './lib/guess'
-require './lib/deck'
 require './lib/round'
-require './lib/flashcards'
-require 'pry'
+require './lib/deck'
+require './lib/guess'
+require './lib/card'
+require './lib/card_generator'
+#
+filename =  'cards.txt'
+cards = CardGenerator.new(filename).cards
+# @card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+# @card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+# @card_3 = Card.new("How many teams are in MLB?", "30")
 
-@card_a = Card.new("How many teams are in MLB?", "30")
-@card_b = Card.new("Who is the 25th president of the United Sates?", "William McKinley")
-@card_c = Card.new("What is the most popular household pet in the world?", "Fish")
-@card_d = Card.new("In what year was Colorado founded?", "1876")
-@deck = Deck.new([@card_a, @card_b])
-@round_1 = Round.new(@deck)
+@deck = Deck.new([cards])
+@round = Round.new(@deck)
 
-@round_1.start
+@round.start

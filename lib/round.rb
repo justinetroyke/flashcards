@@ -44,7 +44,7 @@ class Round
       p "Question: #{card.question}"
       response = gets.strip
       guess = record_guess(response)
-      sleep 2
+      sleep 1
       p guess.feedback
       sleep 2
     end
